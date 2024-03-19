@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
-Route::get('/accept', [AdminController::class, 'approve'])->name('user.accept');
-Route::get('/decline/{user_id}', [AdminController::class, 'decline'])->name('user.decline');
+Route::get('/accept/{id}', [AdminController::class, 'approve'])->name('user.accept');
+Route::get('/decline/{id}', [AdminController::class, 'decline'])->name('user.decline');
 
 
 Route::middleware('auth')->group(function () {

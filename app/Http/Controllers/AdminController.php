@@ -16,10 +16,9 @@ class AdminController extends Controller
             return view('user_dashboard',compact('user'));
         }
     }
-    public function approve(Request $request)
+    public function approve(Request $request,$id)
     {
-        $userId = $request->user_id;
-        $user = User::find($userId);
+        $user = User::find($id);
         if ($user) {
             $user->approved = true;
             $user->save();
@@ -28,9 +27,9 @@ class AdminController extends Controller
             return redirect()->back()->with('error', 'User not found.');
         }
     }
-    public function decline(Request $request, $userId)
+    public function decline(Request $request, $id)
     {
-        $user = User::find($userId);
+        $user = User::find($id);
         if ($user) {
             $user->delete(); 
             return redirect()->back()->with('success', 'User registration declined successfully.');

@@ -33,8 +33,8 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>
-                                    <a href="{{ route('user.accept', ['user_id' => $item->id]) }}" class="btn btn-success">Accept</a>
-                                    <a href="{{ route('user.decline', ['user_id' => $item->id]) }}" class="btn btn-danger">Decline</a>  
+                                    <a href="{{ route('user.accept', $item->id) }}" class="btn btn-success">Accept</a>
+                                    <a href="{{ route('user.decline',  $item->id) }}" class="btn btn-danger">Decline</a>  
                                 </td>
                             </tr>
                             @endif
